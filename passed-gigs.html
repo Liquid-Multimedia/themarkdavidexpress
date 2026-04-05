@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passed gigs — The Mark David Express</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Special+Elite&family=Oswald:wght@300;400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --rust: #8B4513;
+  --aged-gold: #C4A35A;
+  --dark-iron: #1a1a1a;
+  --smoke: #2a2622;
+  --cream: #f5f0e6;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--dark-iron);
+  color: var(--cream);
+  font-family: 'Oswald', sans-serif;
+  min-height: 100vh;
+}
+
+.back-bar {
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(196, 163, 90, 0.15);
+}
+.back-bar a {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.2em;
+  font-size: 0.95rem;
+  color: var(--aged-gold);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.back-bar a:hover { color: var(--cream); }
+
+.page-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px 100px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.page-header h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  letter-spacing: 0.12em;
+  color: var(--cream);
+}
+.page-header .accent-line {
+  width: 80px;
+  height: 3px;
+  background: var(--aged-gold);
+  margin: 18px auto 0;
+}
+.page-header .subtitle {
+  font-family: 'Special Elite', cursive;
+  color: rgba(245, 240, 230, 0.5);
+  margin-top: 16px;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+}
+.page-header .blurb {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  color: rgba(245, 240, 230, 0.55);
+  margin-top: 20px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+  letter-spacing: 0.06em;
+}
+
+.poster-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 36px;
+}
+
+.poster-item {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(196, 163, 90, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.poster-item:hover {
+  border-color: rgba(196, 163, 90, 0.45);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.poster-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.add-more {
+  margin-top: 50px;
+  text-align: center;
+  font-family: 'Special Elite', cursive;
+  font-size: 0.95rem;
+  color: rgba(245, 240, 230, 0.35);
+  letter-spacing: 0.06em;
+}
+</style>
+</head>
+<body>
+
+<nav class="back-bar">
+  <a href="index.html">&larr; Back to the line</a>
+</nav>
+
+<main class="page-wrap">
+  <header class="page-header">
+    <h1>PASSED GIGS</h1>
+    <div class="accent-line"></div>
+    <p class="subtitle">(missed destinations)</p>
+    <p class="blurb">Stops we&rsquo;ve already made &mdash; the posters left on the platform.</p>
+  </header>
+
+  <div class="poster-grid">
+    <figure class="poster-item">
+      <img src="assets/poster-hotel-drake-2025.png" alt="The Mark David Express — live poster, station sign and train in fog" loading="lazy">
+    </figure>
+    <figure class="poster-item">
+      <img src="assets/poster-kyogle-bowling.png" alt="The Mark David Express — live at Kyogle Bowling Club" loading="lazy">
+    </figure>
+    <figure class="poster-item">
+      <img src="assets/poster-connors-shed.png" alt="The Mark David Express — Connor's Shed, Roseberry Creek" loading="lazy">
+    </figure>
+    <figure class="poster-item">
+      <img src="assets/poster-crown-urbenville.png" alt="The Mark David Express — Crown Hotel, Urbenville" loading="lazy">
+    </figure>
+    <figure class="poster-item">
+      <img src="assets/poster-exchange-kyogle.png" alt="The Mark David Express — Exchange Hotel, Kyogle" loading="lazy">
+    </figure>
+  </div>
+
+  <p class="add-more">Room for more carriages.</p>
+</main>
+
+</body>
+</html>
