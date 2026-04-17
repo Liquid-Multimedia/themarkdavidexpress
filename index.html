@@ -100,18 +100,6 @@ body {
   animation: fadeIn 1s ease 1.2s both;
 }
 
-.coming-soon {
-  font-family: 'Special Elite', cursive;
-  font-size: clamp(1rem, 3vw, 1.6rem);
-  color: var(--aged-gold);
-  letter-spacing: 0.5em;
-  animation: fadeInUp 1s ease 1.4s both;
-  position: relative;
-}
-.coming-soon::before, .coming-soon::after {
-  content: '—'; margin: 0 15px; opacity: 0.5;
-}
-
 .hero-tagline {
   font-family: 'Oswald', sans-serif;
   font-weight: 300;
@@ -490,14 +478,7 @@ body {
   font-size: 2rem;
   letter-spacing: 0.15em;
   color: var(--cream);
-  margin-bottom: 10px;
-}
-.signup-section p {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 300;
-  color: rgba(245,240,230,0.6);
-  margin-bottom: 30px;
-  letter-spacing: 0.1em;
+  margin-bottom: 28px;
 }
 .signup-form {
   display: flex;
@@ -603,7 +584,6 @@ body::after {
       <br><span class="express">EXPRESS</span>
     </h1>
     <div class="hero-divider"></div>
-    <div class="coming-soon">COMING SOON</div>
     <p class="hero-tagline">www.themarkdavidexpress.com</p>
   </div>
   <div class="scroll-indicator"><span></span></div>
@@ -614,7 +594,7 @@ body::after {
   <div class="section-header">
     <h2>NEXT STOP</h2>
     <div class="accent-line"></div>
-    <p class="past-gigs-cta past-gigs-cta--next-stop"><a href="passed-gigs.html">Passed gigs</a> <span class="past-gigs-sub">(missed destinations)</span></p>
+    <p class="past-gigs-cta past-gigs-cta--next-stop"><a href="https://www.themarkdavidexpress.com/passed-gigs.html">Passed gigs</a> <span class="past-gigs-sub">(missed destinations)</span></p>
   </div>
   <div class="gig-card" data-animate>
     <div style="overflow:hidden;">
@@ -622,9 +602,8 @@ body::after {
     </div>
     <div class="gig-info">
       <div class="live-badge">UPCOMING</div>
-      <h3>Lunatic</h3>
-      <div class="venue">Hotel Drake</div>
-      <div class="date-time">SATURDAY 19TH APRIL &bull; 8PM</div>
+      <div class="venue">Venue: TBA</div>
+      <div class="date-time">Date: TBA</div>
       <a href="#" class="ticket-link">GET ON BOARD</a>
     </div>
   </div>
@@ -794,11 +773,10 @@ body::after {
 <!-- SIGNUP -->
 <section class="signup-section">
   <h2>STAY ON TRACK</h2>
-  <p>Be the first to know when the site goes live</p>
-  <div class="signup-form">
-    <input type="email" placeholder="Your email address">
-    <button type="button">ALL ABOARD</button>
-  </div>
+  <form class="signup-form" action="#" method="get">
+    <input type="email" name="from" autocomplete="email" placeholder="Your email address" aria-label="Your email address">
+    <button type="submit">ALL ABOARD</button>
+  </form>
 </section>
 
 <!-- BANNER -->
@@ -840,21 +818,19 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 
-// Signup button
-document.querySelector('.signup-form button').addEventListener('click', function() {
-  const input = document.querySelector('.signup-form input');
-  if (input.value) {
-    this.textContent = 'YOU\'RE ON BOARD!';
-    this.style.background = '#8B4513';
-    this.style.color = '#f5f0e6';
-    input.value = '';
-    setTimeout(() => {
-      this.textContent = 'ALL ABOARD';
-      this.style.background = '';
-      this.style.color = '';
-    }, 3000);
-  }
-});
+// Email signup — opens mail client to markdavidthesunking@gmail.com
+(function () {
+  var form = document.querySelector('.signup-form');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var input = form.querySelector('input[type="email"]');
+    var from = input && input.value.trim();
+    var href = 'mailto:markdavidthesunking@gmail.com?subject=' + encodeURIComponent('Stay on track — The Mark David Express');
+    if (from) href += '&body=' + encodeURIComponent('Please add me for updates: ' + from);
+    window.location.href = href;
+  });
+})();
 </script>
 </body>
 </html>
